@@ -597,8 +597,10 @@ blockquote cite { display: block; font-style: normal; color: var(--text-muted); 
   .metrics { grid-template-columns: 1fr; }
   .metric h3 { min-height: 0; }
   .perception { grid-template-columns: 1fr; }
-  .chip { background: var(--blue-secondary); color: var(--text); }
-  .chip:nth-child(even) { background: var(--blue); color: #fff; }
+  /* шахматный порядок: сетка в 2 колонки, цвет = (ряд + колонка) % 2 */
+  .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .chip { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 8px 10px; border-radius: 23px; white-space: normal; text-align: center; line-height: 1.2; background: var(--blue-secondary); color: var(--text); }
+  .chip:nth-child(4n + 2), .chip:nth-child(4n + 3) { background: var(--blue); color: #fff; }
   .reveal.from-left, .reveal.from-right { transform: translateY(30px); }
   .reveal.in.from-left, .reveal.in.from-right { transform: none; }
   .swipe-hint { display: flex; }

@@ -29,6 +29,14 @@
     .rs-page img { width: 100%; height: auto; }
     .rs-page a { position: absolute; border-radius: 4px; }
     .rs-page a:focus-visible { outline: 2px solid var(--blue); }
+    .rs-pages:fullscreen { display: block; max-width: none; margin: 0; padding: 24px 16px 48px; overflow-y: auto; background: #2b2f36; }
+    .rs-pages:fullscreen .rs-page { max-width: 1100px; margin: 0 auto 24px; }
+    .rs-pages.rs-full { position: fixed; inset: 0; z-index: 50; display: block; max-width: none; margin: 0; padding: 24px 16px 48px; overflow-y: auto; background: #2b2f36; }
+    .rs-pages.rs-full .rs-page { max-width: 1100px; margin: 0 auto 24px; }
+    .rs-close { display: none; position: fixed; right: 18px; top: 14px; z-index: 60; width: 44px; height: 44px; border-radius: 50%; background: #fff; color: var(--text); font-size: 28px; line-height: 1; box-shadow: var(--shadow-400); }
+    .rs-pages:fullscreen .rs-close, .rs-pages.rs-full .rs-close { display: block; }
+    .rs-page img { cursor: zoom-in; }
+    .rs-pages:fullscreen .rs-page img, .rs-pages.rs-full .rs-page img { cursor: default; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } }
     @media (hover: hover) {
       .rs-back:hover svg { transform: translateX(-4px); }
@@ -48,8 +56,8 @@
     <div class="container rs-bar__in">
       <a class="rs-back" href="./#contacts"><svg viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>К UX-кейсу</a>
       <div class="rs-actions">
-        <a class="btn btn--outline" href="assets/docs/resume-severyukhina.pdf" target="_blank" rel="noopener">Открыть PDF <img class="ico" src="assets/icons/arrow-up-right-blue.svg" alt=""></a>
-        <a class="btn" href="assets/docs/resume-severyukhina.pdf" download="Резюме Северюхина Диана.pdf">Скачать <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+        <button class="btn btn--outline" type="button" id="rs-full">Во весь экран <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#1f90ec" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></button>
+        <a class="btn" href="assets/docs/resume-severyukhina.pdf" download="Резюме Северюхина Диана.pdf">Скачать PDF <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
       </div>
     </div>
   </div>
@@ -58,7 +66,8 @@
       <h1 class="grad-text">Резюме</h1>
       <p>Диана Северюхина · UX/UI-дизайнер</p>
     </div>
-    <div class="rs-pages">
+    <div class="rs-pages" id="rs-pages">
+      <button class="rs-close" type="button" id="rs-close" aria-label="Закрыть полноэкранный режим">×</button>
       <figure class="rs-page">
         <img src="assets/docs/resume-p1.webp" width="1488" height="2105" alt="Резюме Дианы Северюхиной, страница 1">
         <a href="mailto:dianaseverukhina@gmail.com" aria-label="Email" style="left:7.185%;top:13.806%;width:24.958%;height:2.405%"></a>
@@ -70,5 +79,19 @@
       </figure>
     </div>
   </main>
+  <script>
+    (() => {
+      const box = document.getElementById('rs-pages');
+      const open = () => {
+        if (box.requestFullscreen) box.requestFullscreen().catch(() => box.classList.add('rs-full'));
+        else box.classList.add('rs-full');
+      };
+      const close = () => { if (document.fullscreenElement) document.exitFullscreen(); box.classList.remove('rs-full'); };
+      document.getElementById('rs-full').addEventListener('click', open);
+      document.getElementById('rs-close').addEventListener('click', close);
+      box.querySelectorAll('.rs-page img').forEach(img => img.addEventListener('click', () => { if (!document.fullscreenElement && !box.classList.contains('rs-full')) open(); }));
+      addEventListener('keydown', e => { if (e.key === 'Escape') box.classList.remove('rs-full'); });
+    })();
+  </script>
 </body>
 </html>
