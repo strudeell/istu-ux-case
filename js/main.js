@@ -217,6 +217,49 @@
   lb.addEventListener('click', close);
   addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
 
+  /* ---------- Анализ ЦА: пункты раскрываются по очереди, наведение/тап — вручную ---------- */
+  $$('.orbit').forEach((orbit, oi) => {
+    const items = $$('.orbit__item', orbit);
+    let cur = -1, timer = null, pauseUntil = 0;
+    const set = i => { cur = i; items.forEach((el, k) => { el.classList.toggle('on', k === i); el.setAttribute('aria-expanded', k === i); }); };
+    const tick = () => { if (Date.now() > pauseUntil) set((cur + 1) % items.length); };
+    items.forEach((el, i) => {
+      const pick = () => { pauseUntil = Date.now() + 7000; set(i); };
+      el.addEventListener('mouseenter', pick);
+      el.addEventListener('focus', pick);
+      el.addEventListener('click', pick);
+    });
+    new IntersectionObserver(([e]) => {
+      clearInterval(timer);
+      if (!e.isIntersecting) return;
+      setTimeout(() => { if (cur < 0) set(0); }, 900 + oi * 500);
+      timer = setInterval(tick, 2600 + oi * 300);
+    }, { threshold: .4 }).observe(orbit);
+  });
+
+  /* ---------- Инсайты: «Читать полностью» / «Скрыть» ---------- */
+  $$('.insights__toggle').forEach(btn => {
+    const more = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open);
+      more.classList.toggle('open', open);
+      btn.textContent = open ? 'Скрыть' : 'Читать полностью';
+    });
+  });
+
+  /* ---------- Лента экранов AS IS на телефоне: подсказка и «подталкивание» ---------- */
+  const canvas = $('.flow__canvas');
+  if (canvas) {
+    const end = () => canvas.classList.toggle('at-end', canvas.scrollLeft + canvas.clientWidth >= canvas.scrollWidth - 8);
+    canvas.addEventListener('scroll', end, { passive: true });
+    new IntersectionObserver(([e], obs) => {
+      if (!e.isIntersecting || canvas.scrollWidth <= canvas.clientWidth + 8 || reduce) return;
+      obs.disconnect();
+      setTimeout(() => { canvas.scrollBy({ left: 90, behavior: 'smooth' }); setTimeout(() => canvas.scrollBy({ left: -90, behavior: 'smooth' }), 700); }, 600);
+    }, { threshold: .6 }).observe(canvas);
+  }
+
   /* ---------- Копирование цвета / почты ---------- */
   const toast = $('#toast');
   let tt;
