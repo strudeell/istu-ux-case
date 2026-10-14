@@ -1,0 +1,36 @@
+[
+ {
+  "img": "resume-p1.webp",
+  "w": 1488,
+  "h": 2105,
+  "links": [
+   {
+    "x": 7.185,
+    "y": 13.806,
+    "w": 24.958,
+    "h": 2.405,
+    "uri": "mailto:dianaseverukhina@gmail.com"
+   },
+   {
+    "x": 33.025,
+    "y": 13.806,
+    "w": 18.277,
+    "h": 2.405,
+    "uri": "https://t.me/strudeell"
+   },
+   {
+    "x": 23.193,
+    "y": 17.369,
+    "w": 32.395,
+    "h": 1.425,
+    "uri": "https://www.figma.com/design/fZY4lrumURiRJfzgltUljY"
+   }
+  ]
+ },
+ {
+  "img": "resume-p2.webp",
+  "w": 1488,
+  "h": 2105,
+  "links": []
+ }
+]
