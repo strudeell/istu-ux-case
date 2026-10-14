@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://strudeell.github.io/istu-ux-case/sitemap.xml

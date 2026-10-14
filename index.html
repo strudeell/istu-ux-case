@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>UX-кейс: редизайн сайта ИжГТУ — Диана Северюхина</title>
+  <meta name="description" content="UX/UI-кейс Дианы Северюхиной: редизайн сайта Ижевского государственного технического университета. Исследование ЦА, юзабилити-тесты, опрос, вайрфреймы, UI-kit. Поиск направления для абитуриента стал в 9 раз быстрее, SUS вырос с 66 до 96.">
+  <meta name="keywords" content="UX кейс, UI/UX дизайнер, редизайн сайта университета, ИжГТУ, юзабилити тест, SUS, портфолио дизайнера, Диана Северюхина">
+  <meta name="author" content="Диана Северюхина">
+  <meta name="theme-color" content="#1f90ec">
+  <link rel="canonical" href="https://strudeell.github.io/istu-ux-case/">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="Портфолио Дианы Северюхиной">
+  <meta property="og:title" content="UX-кейс: редизайн сайта ИжГТУ">
+  <meta property="og:description" content="Как сократить время поиска направления для абитуриента в 9 раз: исследование, тесты, вайрфреймы и UI-kit.">
+  <meta property="og:url" content="https://strudeell.github.io/istu-ux-case/">
+  <meta property="og:image" content="https://strudeell.github.io/istu-ux-case/assets/img/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "UX-кейс: редизайн сайта Ижевского государственного технического университета",
+    "description": "Исследование, юзабилити-тесты, вайрфреймы и UI-kit для редизайна раздела «Абитуриенту» сайта ИжГТУ.",
+    "url": "https://strudeell.github.io/istu-ux-case/",
+    "inLanguage": "ru",
+    "image": "https://strudeell.github.io/istu-ux-case/assets/img/og-cover.jpg",
+    "author": {
+      "@type": "Person",
+      "name": "Диана Северюхина",
+      "jobTitle": "UX/UI-дизайнер",
+      "email": "mailto:dianaseverukhina@gmail.com",
+      "sameAs": ["https://t.me/strudeell", "https://github.com/strudeell"]
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/sections.css">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="topbar" id="topbar">
+  <div class="container topbar__inner">
+    <a class="topbar__logo" href="#top" aria-label="В начало">
+      <img src="assets/icons/favicon.svg" alt="" width="28" height="28">
+      <span>UX-кейс <b>ИжГТУ</b></span>
+    </a>
+    <nav class="topbar__nav" aria-label="Разделы кейса">
+      <a href="#about">О кейсе</a>
+      <a href="#research">Исследование</a>
+      <a href="#solution">Решение</a>
+      <a href="#result">Итоги</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="topbar__cta" href="https://strudeell.github.io/istu-redesign/" target="_blank" rel="noopener">Открыть сайт</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" aria-label="Обложка кейса">
+    <img class="hero__bg" src="assets/img/hero-logo-bg.webp" alt="" aria-hidden="true" data-parallax="0.25">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <h1 class="hero__title">
+        <span class="line"><span>Сайт Ижевского</span></span>
+        <span class="line"><span>Государственного Технического</span></span>
+        <span class="line"><span>университета</span></span>
+      </h1>
+      <p class="hero__lead fade-up" style="--d:.5s">Сокращение времени поиска подходящих направлений для&nbsp;абитуриента</p>
+
+      <div class="hero__compare" aria-label="Было и стало">
+        <figure class="phone phone--old fade-up" style="--d:.7s">
+          <img src="assets/img/hero-old.webp" alt="Действующий сайт istu.ru на телефоне" width="249" height="506">
+          <figcaption>Было</figcaption>
+        </figure>
+        <img class="hero__arrow" src="assets/icons/hero-arrow.svg" alt="" aria-hidden="true">
+        <figure class="phone phone--new fade-up" style="--d:.9s">
+          <img src="assets/img/hero-new.webp" alt="Редизайн сайта ИжГТУ на телефоне" width="255" height="519">
+          <figcaption>Стало</figcaption>
+        </figure>
+      </div>
+
+      <div class="hero__bottom fade-up" style="--d:1.1s">
+        <p class="hero__note">Это можно сделать<br>на <b class="count" data-to="80">80</b>&nbsp;% быстрее…</p>
+        <a class="btn btn--white" href="https://strudeell.github.io/istu-redesign/" target="_blank" rel="noopener">
+          Перейти на сайт <img class="ico" src="assets/icons/arrow-up-right.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ВСЁ О КЕЙСЕ ===================== -->
+  <section class="section about" id="about">
+    <div class="container about__grid">
+      <h2 class="title-combo reveal from-left">
+        <span class="h-xl grad-text">Всё</span>
+        <span class="h-lg grad-text" style="margin:59px 0 0 48px">о кейсе</span>
+      </h2>
+
+      <div class="accordion reveal" style="--d:.15s">
+        <details class="acc" open>
+          <summary>
+            <span class="acc__title">Цель
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="12" r="5"/><path d="M12 3a9 9 0 1 0 9 9"/><path d="M15 9l6-6M18 3h3v3"/></svg>
+            </span>
+            <span class="acc__btn" aria-hidden="true"></span>
+          </summary>
+          <div class="acc__body"><div>
+            <p>Сократить время, которое абитуриент тратит на поиск подходящего направления: вместо 9&nbsp;кликов и нескольких минут блужданий по разделам — пара действий и все важные цифры на одном экране.</p>
+          </div></div>
+        </details>
+        <details class="acc">
+          <summary>
+            <span class="acc__title">Задача
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.1V12a10 10 0 1 1-5.9-9.1"/><path d="M22 4 12 14l-3-3"/></svg>
+            </span>
+            <span class="acc__btn" aria-hidden="true"></span>
+          </summary>
+          <div class="acc__body"><div>
+            <p>Исследовать аудиторию и протестировать действующий сайт, перепроектировать навигацию и каталог образовательных программ: фильтры по баллам и предметам ЕГЭ, форме обучения и стоимости, карточки с проходным баллом и бюджетными местами. Собрать UI-kit и проверить решение повторным тестом.</p>
+          </div></div>
+        </details>
+        <details class="acc">
+          <summary>
+            <span class="acc__title">Контекст
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            </span>
+            <span class="acc__btn" aria-hidden="true"></span>
+          </summary>
+          <div class="acc__body"><div>
+            <p>istu.ru — официальный сайт ИжГТУ им.&nbsp;М.&nbsp;Т.&nbsp;Калашникова. Им пользуются школьники, их родители и студенты, чаще всего с телефона. Проходные баллы, бюджетные места и цены спрятаны глубоко в разделах, а в мобильной версии фильтры оказываются под длинным списком программ. Проект — неофициальный концепт редизайна.</p>
+          </div></div>
+        </details>
+        <details class="acc">
+          <summary>
+            <span class="acc__title">Критерии успеха
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><path d="M8.21 13.89 7 23l5-3 5 3-1.21-9.12"/></svg>
+            </span>
+            <span class="acc__btn" aria-hidden="true"></span>
+          </summary>
+          <div class="acc__body"><div>
+            <ul>
+              <li>Главная задача (проходной балл и бюджет) решается быстрее, чем на действующем сайте</li>
+              <li>Все респонденты справляются со сценариями на телефоне</li>
+              <li>Оценка SUS выше среднего по отрасли — 68 баллов</li>
+            </ul>
+          </div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AS IS ===================== -->
+  <section class="section asis" id="research">
+    <div class="container asis__head">
+      <h2 class="title-combo reveal from-left">
+        <span class="h-lg grad-text">Процесс</span>
+        <span class="h-xl grad-text" style="margin:48px 0 0 40px">As is</span>
+      </h2>
+      <div class="alert reveal from-right">
+        <img src="assets/icons/alert.svg" alt="" width="48" height="48">
+        <p>Сейчас чтобы найти нужную образовательную программу, пользователю понадобится <b class="count" data-to="9">9</b> кликов!</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="flow" id="flow">
+        <div class="flow__counter" aria-hidden="true">
+          <span class="flow__num">0</span><span class="flow__of">/9 кликов</span>
+        </div>
+        <div class="flow__canvas">
+          <svg class="flow__arrows" viewBox="0 0 1280 1536" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="ah" viewBox="0 0 12 12" refX="6" refY="10" markerWidth="12" markerHeight="12" markerUnits="userSpaceOnUse" orient="auto-start-reverse">
+                <path d="M1 4 6 10 11 4" fill="none" stroke="#0c75c0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- порядок путей = порядок кликов -->
+            <path data-step="1" d="M126 116V89H383V114"/>
+            <path data-step="2" d="M399 629V656H655V631"/>
+            <path data-step="3" d="M643 116V89H899V114"/>
+            <path data-step="4" d="M916 629V656H1172V631"/>
+            <path data-step="5" d="M1245 628V754H2V871H126V905"/>
+            <path data-step="6" d="M126 1420V1447H383V1422"/>
+            <path data-step="7" d="M379 907V880H635V905"/>
+            <path data-step="8" d="M643 1420V1447H899V1422"/>
+            <path data-step="9" d="M896 907V880H1152V905"/>
+          </svg>
+
+          <p class="flow__cap" data-step="1" style="left:9.77%;top:3.13%;width:20.08%">Зайти в бургер-меню</p>
+          <p class="flow__cap" data-step="2" style="left:31.09%;top:43.8%;width:20.08%">Кликнуть на раздел <b>Абитуриенту</b></p>
+          <p class="flow__cap" data-step="3" style="left:49.45%;top:0;width:24.92%">Выбрать раздел <b>Прием</b> и проскроллить до подраздела <b>Бакалавриат</b></p>
+          <p class="flow__cap" data-step="4" style="left:70.16%;top:43.8%;width:20.08%">Кликнуть на раздел <b>Выбрать направление</b></p>
+          <p class="flow__cap" data-step="5" style="left:0;top:51.43%;width:19.45%">Пролистать весь перечень программ</p>
+          <p class="flow__cap" data-step="6" style="left:9.77%;top:95.31%;width:20.08%">Открыть <b>Фильтры</b></p>
+          <p class="flow__cap" data-step="7" style="left:29.53%;top:51.5%;width:20.08%">Проскроллить до нужного раздела, кликнуть на него и выбрать фильтры</p>
+          <p class="flow__cap" data-step="8" style="left:50%;top:95.31%;width:20.08%">Проскроллить до конца вверх или низ и нажать кнопку <b>Применить</b></p>
+          <p class="flow__cap" data-step="9" style="left:69.92%;top:51.5%;width:20.08%">Проскроллить до конца вверх или низ и нажать кнопку <b>Применить</b></p>
+
+          <div class="flow__row" style="top:7.75%">
+            <img src="assets/img/asis-01.webp" alt="Шаг 1: главная страница istu.ru" loading="lazy">
+            <img src="assets/img/asis-02.webp" alt="Шаг 2: открытое бургер-меню" loading="lazy">
+            <img src="assets/img/asis-03.webp" alt="Шаг 3: раздел Абитуриенту" loading="lazy">
+            <img src="assets/img/asis-04.webp" alt="Шаг 4: подраздел Бакалавриат" loading="lazy">
+            <img src="assets/img/asis-05.webp" alt="Шаг 5: образовательные программы" loading="lazy">
+          </div>
+          <div class="flow__row" style="top:59.24%">
+            <img src="assets/img/asis-06.webp" alt="Шаг 6: перечень программ" loading="lazy">
+            <img src="assets/img/asis-07.webp" alt="Шаг 7: фильтры" loading="lazy">
+            <img src="assets/img/asis-08.webp" alt="Шаг 8: выбор предметов ЕГЭ" loading="lazy">
+            <img src="assets/img/asis-09.webp" alt="Шаг 9: кнопка Применить" loading="lazy">
+            <img src="assets/img/asis-10.webp" alt="Шаг 10: результат поиска" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== АНАЛИЗ ЦА ===================== -->
+  <section class="section ca">
+    <div class="container">
+      <h2 class="h-lg grad-text reveal">Анализ целевой аудитории</h2>
+      <div class="ca__grid">
+        <div class="orbit reveal from-left">
+          <p class="orbit__label h-xl grad-text">ЦА</p>
+          <div class="orbit__items">
+            <svg class="orbit__arc" viewBox="0 0 45 219.5" preserveAspectRatio="none" aria-hidden="true"><path d="M7.13 219.49C32.62 188.25 46.02 148.9 44.9 108.61 43.77 68.31 28.2 29.77 1.02 0"/></svg>
+            <p class="orbit__item"><i></i>Одиннадцатиклассники</p>
+            <p class="orbit__item"><i></i>Родители абитуриентов</p>
+            <p class="orbit__item"><i></i>Первокурсники</p>
+          </div>
+        </div>
+        <div class="orbit reveal from-right" style="--d:.15s">
+          <p class="orbit__label h-lg grad-text">Что важно<br>на сайте</p>
+          <div class="orbit__items">
+            <svg class="orbit__arc" viewBox="0 0 45 219.5" preserveAspectRatio="none" aria-hidden="true"><path d="M7.13 219.49C32.62 188.25 46.02 148.9 44.9 108.61 43.77 68.31 28.2 29.77 1.02 0"/></svg>
+            <p class="orbit__item"><i></i>Скорость отклика</p>
+            <p class="orbit__item"><i></i>Лёгкость поиска информации</p>
+            <p class="orbit__item"><i></i>Удобство с телефона</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ПОРТРЕТЫ ===================== -->
+  <section class="section personas">
+    <div class="container personas__head">
+      <h2 class="h-lg reveal">Портреты ЦА</h2>
+      <div class="slider-nav reveal" style="--d:.1s">
+        <button class="slider-btn" data-dir="-1" aria-label="Предыдущий портрет"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <span class="slider-count"><b>1</b>/4</span>
+        <button class="slider-btn" data-dir="1" aria-label="Следующий портрет"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="personas__track" id="personas" tabindex="0" aria-label="Портреты пользователей, листаются горизонтально">
+      <!-- Карточки рендерятся из данных в js/main.js -->
+    </div>
+    <div class="container"><div class="personas__bar"><span></span></div></div>
+  </section>
+
+  <!-- ===================== ЮЗАБИЛИТИ ДЕЙСТВУЮЩЕГО ===================== -->
+  <section class="section usab">
+    <div class="container">
+      <div class="split-head">
+        <h2 class="title-combo reveal from-left">
+          <span class="h-lg grad-text">Юзабилити тест</span>
+          <span class="h-xl grad-text" style="margin:31px 0 0 117px;text-transform:none">Istu.ru</span>
+          <span class="t-20 accent" style="margin:99px 0 0 206px">(Действующий сайт)</span>
+        </h2>
+        <p class="split-head__text reveal from-right">В тестировании участвовали 4 человека из разных сегментов целевой аудитории, всем им необходимо было пройти несколько сценариев на двух устройствах и поделиться впечатлениями, а&nbsp;также пройти анкету SUS для этого сайта</p>
+      </div>
+
+      <div class="offset-block reveal">
+        <p class="t-16" style="font-weight:600">Сценарии по поиску информации:</p>
+        <ol class="scenarios">
+          <li><b>Программы с помощью фильтров по уровню подготовки и предметам ЕГЭ</b><span>«Ты сдаёшь математику, русский и информатику. Найди 2–3 направления бакалавриата, куда можно поступить с этими предметами»</span></li>
+          <li><b>Количество бюджетных мест</b><span>«Представь, что у тебя 165 баллов. Найди среди подходящих тебе направлений то, куда ты прошёл бы на бюджет в прошлом году. Сколько там бюджетных мест?»</span></li>
+          <li><b>Стоимость года обучения</b><span>«Из подходящих тебе направлений найди то, где больше всего бюджетных мест. Сколько стоит год обучения на нём, если на бюджет не пройдёшь?»</span></li>
+        </ol>
+      </div>
+
+      <div class="proofs">
+        <div class="proofs__grid">
+          <button class="zoomable reveal zoom" data-full="assets/img/usab-1.webp"><img src="assets/img/usab-1.webp" alt="Запись юзабилити-теста, респондент 1" loading="lazy"></button>
+          <button class="zoomable reveal zoom" style="--d:.08s" data-full="assets/img/usab-2.webp"><img src="assets/img/usab-2.webp" alt="Запись юзабилити-теста, респондент 2" loading="lazy"></button>
+          <button class="zoomable reveal zoom" style="--d:.16s" data-full="assets/img/usab-3.webp"><img src="assets/img/usab-3.webp" alt="Запись юзабилити-теста, респондент 3" loading="lazy"></button>
+          <button class="zoomable reveal zoom" style="--d:.24s" data-full="assets/img/usab-4.webp"><img src="assets/img/usab-4.webp" alt="Запись юзабилити-теста, респондент 4" loading="lazy"></button>
+        </div>
+        <button class="zoomable proofs__big reveal from-right" data-full="assets/img/usab-sus.webp"><img src="assets/img/usab-sus.webp" alt="Результаты анкеты SUS для istu.ru" loading="lazy"></button>
+      </div>
+
+      <a class="btn reveal" href="https://disk.yandex.ru/d/cltu1ibdZa6NSg" target="_blank" rel="noopener">Перейти к аналитике <img class="ico" src="assets/icons/arrow-up-right-white.svg" alt=""></a>
+
+      <div class="insights offset-block">
+        <h3 class="h-lg reveal">Инсайты</h3>
+        <ol class="insights__list">
+          <li class="reveal"><b>В списке нет проходного балла, бюджетных мест и цены.</b> Каждую программу приходится открывать отдельно</li>
+          <li class="reveal" style="--d:.1s"><b>Неудобный ползунок проходного балла.</b> Его не замечают, настраивают наоборот («от 165» вместо «до 165»), хочется ввести число.</li>
+          <li class="reveal" style="--d:.2s"><b>На телефоне фильтры спрятаны под списком.</b> Пользователю приходится перелистывать все программы.</li>
+          <li class="reveal" style="--d:.3s"><a class="link-more" href="https://disk.yandex.ru/d/cltu1ibdZa6NSg" target="_blank" rel="noopener">Читать полностью</a></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ОПРОС ===================== -->
+  <section class="section survey">
+    <div class="container">
+      <div class="split-head split-head--center">
+        <h2 class="h-lg grad-text reveal from-left">Опрос</h2>
+        <p class="split-head__text reveal from-right">Провела онлайн‑опрос среди пользователей, чтобы понять, как реализовать фильтры и сортировку, а&nbsp;также список программ и их карточки</p>
+      </div>
+      <button class="zoomable survey__charts reveal" data-full="assets/img/survey-charts.webp"><img src="assets/img/survey-charts.webp" alt="Графики с результатами опроса" loading="lazy"></button>
+      <div class="survey__note reveal">
+        <p>С помощью кода визуализировала информацию в формате графиков</p>
+        <svg class="draw" width="152" height="96" viewBox="0 0 152 96" fill="none" aria-hidden="true"><path d="M4 70C30 88 70 92 96 70S132 22 120 8" stroke="#1f90ec" stroke-width="2" stroke-linecap="round"/><path d="M108 18 120 6l10 14" stroke="#1f90ec" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="survey__pair">
+        <button class="zoomable reveal from-left" data-full="assets/img/survey-filters.webp"><img src="assets/img/survey-filters.webp" alt="Какие фильтры нужны пользователям — результаты опроса" loading="lazy"></button>
+        <button class="zoomable reveal from-right" data-full="assets/img/survey-params.webp"><img src="assets/img/survey-params.webp" alt="Где пользователи ожидают видеть параметры — результаты опроса" loading="lazy"></button>
+      </div>
+      <a class="btn reveal" href="https://disk.yandex.ru/d/cltu1ibdZa6NSg" target="_blank" rel="noopener">Перейти к аналитике <img class="ico" src="assets/icons/arrow-up-right-white.svg" alt=""></a>
+
+      <div class="survey__insights">
+        <h3 class="h-lg reveal">Инсайты</h3>
+        <div class="chips-grid">
+          <div class="chips-col reveal">
+            <p class="t-20 accent">Параметры в фильтрах</p>
+            <div class="chips">
+              <span class="chip">Мой балл ЕГЭ</span><span class="chip chip--on">Проходной балл ЕГЭ</span><span class="chip">Наличие бюджетных мест</span>
+              <span class="chip chip--on">Предметы ЕГЭ</span><span class="chip">Сфера или профессия</span><span class="chip chip--on">Наличие общежития</span>
+              <span class="chip">Уровень образования</span><span class="chip chip--on">Форма обучения</span><span class="chip">Стоимость обучения</span>
+            </div>
+          </div>
+          <div class="chips-col reveal" style="--d:.15s">
+            <p class="t-20 accent">Информация в списке программ</p>
+            <div class="chips">
+              <span class="chip">Срок и форма обучения</span><span class="chip chip--on">Наличие ВУЦ и общежития</span>
+              <span class="chip chip--on">Проходной балл</span><span class="chip">Нужные предметы</span><span class="chip chip--on">Код направления</span>
+              <span class="chip chip--on">Стоимость обучения</span><span class="chip">Количество бюджетных мест</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ДИЗАЙН-РЕШЕНИЕ ===================== -->
+  <section class="section design" id="solution">
+    <div class="container design__grid">
+      <h2 class="title-combo reveal from-left">
+        <span class="h-xl grad-text" style="text-transform:none">Дизайн</span>
+        <span class="h-lg grad-text" style="margin:64px 0 0 104px">‑ решение</span>
+      </h2>
+      <div class="design__rows">
+        <div class="design__row reveal">
+          <div class="design__text">
+            <h3 class="t-20 accent">Цветовая палитра</h3>
+            <p>Голубой цвет ассоциируется с надежностью, спокойствием, доверием и интеллектом, это подходит под тему университета и соответствует тем эмоциям, которые мы хотим вызвать у пользователей</p>
+          </div>
+          <div class="design__visual">
+            <p class="annot">Палитра с акцентом на голубой</p>
+            <div class="swatches">
+              <button class="swatch" style="--c:#1f90ec" data-hex="#1F90EC"></button>
+              <button class="swatch" style="--c:#0c75c0" data-hex="#0C75C0"></button>
+              <button class="swatch" style="--c:#d0e5fd" data-hex="#D0E5FD"></button>
+              <button class="swatch" style="--c:#add9fc" data-hex="#ADD9FC"></button>
+              <button class="swatch" style="--c:#e7f4fe" data-hex="#E7F4FE"></button>
+              <button class="swatch" style="--c:#d0ecfd" data-hex="#D0ECFD"></button>
+            </div>
+          </div>
+        </div>
+        <div class="design__row reveal">
+          <div class="design__text">
+            <h3 class="t-20 accent">Шрифт</h3>
+            <p>Современный гротеск с хорошей читаемостью. Чистый, лаконичный, подходит для цифрового продукта и большого объёма текста</p>
+          </div>
+          <div class="design__visual type-spec">
+            <div class="type-spec__aa"><span>Inter</span><b>Aa</b></div>
+            <ul class="type-spec__w">
+              <li style="font-weight:400">Regular</li><li style="font-weight:500">Medium</li><li style="font-weight:600">Semibold</li><li style="font-weight:700">Bold</li>
+            </ul>
+            <p class="annot annot--bottom">Удобная типографика</p>
+          </div>
+        </div>
+        <div class="design__row reveal">
+          <div class="design__text">
+            <h3 class="t-20 accent">Библиотека компонентов</h3>
+            <p>Единая система компонентов помогает сохранить целостность интерфейса, ускоряет разработку и делает взаимодействие удобным и предсказуемым.<br>Многие компоненты я взяла из существующей системы, но часть реализовала самостоятельно, чтобы они вписывались в тему</p>
+          </div>
+          <div class="design__visual">
+            <img class="design__cover" src="assets/img/uikit-cover.webp" alt="Обложка библиотеки компонентов" loading="lazy">
+            <p class="annot">Библиотека компонентов<br>с единым стилем</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ВАЙРФРЕЙМЫ ===================== -->
+  <section class="section wires">
+    <div class="container">
+      <h2 class="h-lg grad-text reveal">Вайрфреймы</h2>
+      <div class="wires__grid">
+        <figure class="wire wire--tall reveal from-left">
+          <img src="assets/gif/wf1.gif" alt="Вайрфрейм превращается в готовый дизайн: главная страница" loading="lazy">
+          <figcaption><span>Черновик</span><i></i><span>Дизайн</span></figcaption>
+        </figure>
+        <p class="wires__t1 reveal">Следующим шагом после определения дизайн‑концепции стала разработка вайрфреймов (схематичное представление структуры будущего цифрового продукта)</p>
+        <p class="wires__t2 reveal" style="--d:.1s">В данном проекте создание чернового варианта стало важнейшим процессом, так как цель — упростить пользовательский путь, а он продумывается именно на этом этапе</p>
+        <figure class="wire wire--a reveal" style="--d:.05s"><img src="assets/gif/wf3.gif" alt="Вайрфрейм превращается в готовый дизайн" loading="lazy"><figcaption><span>Черновик</span><i></i><span>Дизайн</span></figcaption></figure>
+        <figure class="wire wire--b reveal" style="--d:.15s"><img src="assets/gif/wf2.gif" alt="Вайрфрейм превращается в готовый дизайн" loading="lazy"><figcaption><span>Черновик</span><i></i><span>Дизайн</span></figcaption></figure>
+        <figure class="wire wire--c reveal" style="--d:.25s"><img src="assets/gif/wf4.gif" alt="Вайрфрейм превращается в готовый дизайн" loading="lazy"><figcaption><span>Черновик</span><i></i><span>Дизайн</span></figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== НАВИГАЦИЯ ===================== -->
+  <section class="section nav-map">
+    <div class="container">
+      <h2 class="title-combo reveal from-left">
+        <span class="h-xl grad-text" style="text-transform:none">Навигация</span>
+        <span class="h-lg grad-text" style="margin:63px 0 0 299px">сайта</span>
+      </h2>
+      <div class="sitemap" id="sitemap">
+        <svg class="sitemap__lines" viewBox="0 0 1316 463" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M152 22H1316V442H1059M1316 442H138"/>
+        </svg>
+        <div class="sitemap__top">
+          <span class="node node--main">Первый экран</span>
+          <span class="node node--main">Открытый университет</span>
+          <span class="node node--main">Поступающим</span>
+          <span class="node node--main">Студентам</span>
+        </div>
+        <div class="sitemap__cols">
+          <ul><li>Header</li><li>Главное фото</li><li>Новости</li><li>Университет в цифрах</li><li>Образовательные программы</li><li>Footer</li></ul>
+          <ul><li>Сведения об образовательной организации</li><li>Политика открытости</li><li>Документы</li><li>Виртуальная приемная</li><li>Материалы приема граждан</li><li>Работа в ИжГТУ</li></ul>
+          <ul><li>Приемная комиссия</li><li class="hl">Образовательные программы</li><li>Дополнительное образование</li><li>Календарь приема</li><li>Подготовка к ЕГЭ</li><li>Онлайн‑курсы ИжГТУ</li></ul>
+          <ul><li>Противодействие коррупции</li><li>Студенческий совет</li><li>Студенческие инициативы</li><li>Иностранным студентам</li><li>Медицинская помощь</li><li>Социальная защита</li></ul>
+        </div>
+        <div class="sitemap__bottom">
+          <span class="node node--main">Выпускникам</span>
+          <span class="node node--main">Партнёрам</span>
+          <span class="node node--main">Посетителям</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ИТОГ ===================== -->
+  <section class="section result" id="result">
+    <div class="container">
+      <h2 class="title-combo reveal from-left">
+        <span class="h-xl grad-text">итог</span>
+        <span class="h-lg grad-text" style="margin:63px 0 0 50px">работы</span>
+      </h2>
+      <div class="result__videos">
+        <figure class="device device--laptop reveal from-left">
+          <div class="device__bar"><i></i><i></i><i></i><span>strudeell.github.io/istu-redesign</span></div>
+          <video class="autoplay" src="assets/video/screencast-desktop.mp4" poster="assets/video/screencast-desktop.jpg" muted loop playsinline preload="none" aria-label="Скринкаст редизайна на компьютере"></video>
+          <button class="device__play" aria-label="Пауза"></button>
+        </figure>
+        <figure class="device device--phone reveal from-right">
+          <video class="autoplay" src="assets/video/screencast-mobile.mp4" poster="assets/video/screencast-mobile.jpg" muted loop playsinline preload="none" aria-label="Скринкаст редизайна на телефоне"></video>
+          <button class="device__play" aria-label="Пауза"></button>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ЮЗАБИЛИТИ РЕДИЗАЙНА ===================== -->
+  <section class="section retest">
+    <div class="container">
+      <div class="split-head">
+        <h2 class="title-combo reveal from-left">
+          <span class="h-lg grad-text">Юзабилити тест</span>
+          <span class="t-20 accent" style="margin:48px 0 0 217px">Редизайна</span>
+        </h2>
+        <p class="split-head__text reveal from-right">Пользователи проходили те же сценарии, но на новом сайте. Оценивалось время выполнения и учитывались замечания респондентов, а&nbsp;также метрика SUS для редизайна.</p>
+      </div>
+
+      <div class="metrics">
+        <article class="metric reveal">
+          <h3>Количество кликов в сценарии с одним фильтром на компьютере</h3>
+          <p class="metric__vals"><s>4</s><i></i><b class="count" data-to="2">2</b></p>
+          <span class="badge">в 2 раза меньше кликов</span>
+        </article>
+        <article class="metric reveal" style="--d:.1s">
+          <h3>Время на главную задачу: проходной балл и бюджет</h3>
+          <p class="metric__vals"><s>3:31</s><i></i><b class="count" data-to="0:24">0:24</b></p>
+          <span class="badge">в 9 раз быстрее</span>
+        </article>
+        <article class="metric reveal" style="--d:.2s">
+          <h3>Нашли, где больше мест и какая цена, на телефоне</h3>
+          <p class="metric__vals"><s>0/4</s><i></i><b class="count" data-to="4" data-suffix="/4">4/4</b></p>
+          <span class="badge">было невозможно, стало за 0:34</span>
+        </article>
+        <article class="metric reveal" style="--d:.3s">
+          <h3>Оценка удобства SUS</h3>
+          <p class="metric__vals"><s>66</s><i></i><b class="count" data-to="96">96</b></p>
+          <span class="badge">+30 баллов, средний по отрасли 68</span>
+        </article>
+      </div>
+
+      <div class="perception">
+        <div class="perception__main">
+          <h3 class="t-20 accent reveal">Что изменилось в восприятии</h3>
+          <div class="perception__cols">
+            <div class="quotes quotes--before reveal from-left">
+              <p class="quotes__head"><b>Было</b><i></i>Первое впечатление от istu.ru</p>
+              <blockquote>«Много информации, сверху маленькие шрифты»<cite>Респондент 2</cite></blockquote>
+              <blockquote>«Ляпистый»: современные картинки вперемешку со старыми фото, нет единого стиля<cite>Респондент 3</cite></blockquote>
+              <blockquote>«Огромная реклама, которая неправильно отображается с телефона»<cite>Респондент 4</cite></blockquote>
+            </div>
+            <div class="quotes quotes--after reveal from-right">
+              <p class="quotes__head"><b>Стало</b><i></i>Первое впечатление от редизайна</p>
+              <blockquote>«Запомнилась чистота интерфейса»<cite>Респондент 4</cite></blockquote>
+              <blockquote>«Интерфейс стал современнее и удобнее»<cite>Респондент 2</cite></blockquote>
+              <blockquote>«Теперь в интерфейсе нет раздражающих факторов, всё четко и понятно»<cite>Респондент 4</cite></blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="todo reveal" style="--d:.2s">
+          <h3 class="t-20">Что можно доработать</h3>
+          <div class="todo__item">
+            <b>Добавить чекбокс с русским языком в предметах ЕГЭ, а не учитывать его по умолчанию</b>
+            <p>3 из 4 респондентов потратили время, чтобы заметить подсказку о том, что русский язык всегда включен, лучше вернуть его в список.</p>
+          </div>
+          <div class="todo__item">
+            <b>Добавить подсказку «Подбери по баллам ЕГЭ», которая перенаправляет в фильтры</b>
+            <p>Один респондент не догадался, что баллы ЕГЭ находятся в фильтрах. Перед доработкой проверить гипотезу необходимости этой правки.</p>
+          </div>
+          <div class="todo__item">
+            <b>Добавить СПО в меню</b>
+            <p>Два респондента искали программы для СПО в выпадающем бургер меню.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== UI-KIT ===================== -->
+  <section class="section uikit">
+    <div class="container">
+      <h2 class="h-lg grad-text reveal">UI‑kit</h2>
+      <figure class="uikit__video reveal zoom">
+        <video class="autoplay" src="assets/video/ui-kit.mp4" poster="assets/video/ui-kit.jpg" muted loop playsinline preload="none" aria-label="Обзор UI-kit"></video>
+        <button class="device__play" aria-label="Пауза"></button>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===================== СПАСИБО + КОНТАКТЫ ===================== -->
+  <section class="section thanks" id="contacts">
+    <div class="container">
+      <figure class="thanks__card reveal zoom">
+        <img src="assets/img/thanks.webp" alt="" loading="lazy">
+        <figcaption>спасибо за внимание!</figcaption>
+      </figure>
+      <h2 class="h-xl grad-text thanks__title reveal">контакты</h2>
+      <div class="contacts reveal">
+        <a class="btn" href="https://t.me/strudeell" target="_blank" rel="noopener">Telegram <img class="ico" src="assets/icons/arrow-up-right-white.svg" alt=""></a>
+        <a class="btn" href="mailto:dianaseverukhina@gmail.com">Email <img class="ico" src="assets/icons/arrow-up-right-white.svg" alt=""></a>
+        <a class="btn" href="https://disk.yandex.ru/d/Ne2PoKA05DAAwA" target="_blank" rel="noopener">Резюме <img class="ico" src="assets/icons/arrow-up-right-white.svg" alt=""></a>
+        <a class="btn btn--outline" href="https://www.figma.com/design/MWz7kTQBsKfx5qUvDfAC5z/%D0%9F%D0%BE%D1%80%D1%82%D1%84%D0%BE%D0%BB%D0%B8%D0%BE-%D0%A1%D0%B5%D0%B2%D0%B5%D1%80%D1%8E%D1%85%D0%B8%D0%BD%D0%B0?node-id=0-1&amp;t=ZyjmJz7zBKam2aNt-1" target="_blank" rel="noopener">Портфолио <img class="ico" src="assets/icons/arrow-up-right-blue.svg" alt=""></a>
+        <a class="btn btn--outline" href="https://strudeell.github.io/istu-redesign/" target="_blank" rel="noopener">Сайт редизайна <img class="ico" src="assets/icons/arrow-up-right-blue.svg" alt=""></a>
+      </div>
+      <p class="contacts__hint reveal">Telegram: <a href="https://t.me/strudeell" target="_blank" rel="noopener">@strudeell</a> · <button class="copy" data-copy="dianaseverukhina@gmail.com">dianaseverukhina@gmail.com</button></p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© 2026 Диана Северюхина · UX/UI-дизайнер</span>
+    <span>Неофициальный концепт редизайна сайта ИжГТУ им. М.&nbsp;Т.&nbsp;Калашникова</span>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox__close" aria-label="Закрыть">×</button>
+  <img alt="">
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

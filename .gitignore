@@ -1,0 +1,9 @@
+# исходники и рабочие файлы — не публикуются
+видео для сайта/
+tools/shots/
+tools/wf/
+tools/pairs/
+tools/__pycache__/
+.claude/
+*.token
+figma-token*
